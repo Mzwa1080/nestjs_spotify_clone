@@ -11,9 +11,9 @@ export class SongService {
 
   create(createSongDto: CreateSongDto) {
     const songData = new SongEntity()
-    songData.artists = createSongDto.artists
+    songData.artistId = createSongDto.artistId
     songData.title = createSongDto.title
-    // songData.duration = createSongDto.duration
+    songData.duration = createSongDto.duration
     songData.releasedDate = createSongDto.releasedDate;
     songData.lyrics = createSongDto.lyrics
 
@@ -21,15 +21,17 @@ export class SongService {
   }
 
   findAll() {
-    return `This action returns all song`;
+// Implement try catch 
+    return this.songService.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} song`;
+    // implement 
+    return this.songService.findBy({id})
   }
 
   update(id: number, updateSongDto: UpdateSongDto) {
-    return `This action updates a #${id} song`;
+    return this.songService.update(id, updateSongDto);
   }
 
   remove(id: number) {

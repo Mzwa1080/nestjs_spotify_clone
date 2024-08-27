@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, UseGuards, ParseIntPipe, Put } from '@nestjs/common';
 import { ArtistService } from './artist.service';
 import { CreateArtistDto } from './dto/create-artist.dto';
 import { UpdateArtistDto } from './dto/update-artist.dto';
@@ -30,7 +30,7 @@ export class ArtistController {
     return this.artistService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   @UseGuards(AuthGuard)
   update(@Param('id') id: string, @Body() updateArtistDto: UpdateArtistDto) {
     return this.artistService.update(+id, updateArtistDto);
@@ -41,4 +41,6 @@ export class ArtistController {
   remove(@Param('id', ParseIntPipe) id: string) {
     return this.artistService.remove(+id);
   }
+
+  
 }

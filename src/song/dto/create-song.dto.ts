@@ -8,7 +8,7 @@ export class CreateSongDto {
     @IsArray()
     @ApiProperty({})
     @IsString({each : true})
-    readonly artists;
+    readonly artistId : number;
 
     @IsDateString()
     @ApiProperty({})

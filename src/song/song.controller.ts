@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put, UseGuards, ParseIntPipe, NotFoundException } from '@nestjs/common';
 import { SongService } from './song.service';
 import { CreateSongDto } from './dto/create-song.dto';
 import { UpdateSongDto } from './dto/update-song.dto';
@@ -25,8 +25,8 @@ export class SongController {
 
   @Get(':id')
   @UseGuards(AuthGuard)
-  findOne(@Param('id') id: string) {
-    return this.songService.findOne(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.songService.findOne(id);
   }
 
   @Put(':id')
@@ -37,7 +37,8 @@ export class SongController {
 
   @Delete(':id')
   @UseGuards(AuthGuard)
-  remove(@Param('id') id: string) {
-    return this.songService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.songService.remove(id)
+
   }
 }

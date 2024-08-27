@@ -12,3 +12,4 @@ export const typeOrmConfig = (configService: ConfigService): TypeOrmModuleOption
   autoLoadEntities: true,
   synchronize: true,
 });
+

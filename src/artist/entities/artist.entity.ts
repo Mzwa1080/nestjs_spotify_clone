@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { SongEntity } from "src/song/entities/song.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('artists')
 export class ArtistEntity {
@@ -21,6 +22,7 @@ export class ArtistEntity {
     @Column()
     nationality : string
     
-
+    @OneToMany(() => SongEntity, (song) => song.artist)
+    songs: SongEntity[]
     
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ArtistEntity } from "src/artist/entities/artist.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('songs')
 export class SongEntity {
@@ -6,19 +7,21 @@ export class SongEntity {
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column()
-    artists : string
+    @Column({nullable : false})
+    artistId : number
 
     @Column()
     title : string
 
     @Column()
-    duration : Date
+    duration : string
     
     @Column()
     releasedDate : Date
     
-    @Column()
+    @Column({unique : true})
     lyrics : string
 
+    @ManyToOne(() => ArtistEntity, (artist) => artist.songs)
+    artist: ArtistEntity
 }

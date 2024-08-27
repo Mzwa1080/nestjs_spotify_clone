@@ -18,7 +18,6 @@ import { SeedModule } from './seed/seed.module';
   imports: [
     UserModule,
     TypeOrmModule.forRoot(dataSourceOptions),
-
     AuthModule,
 
     ArtistModule,
@@ -30,11 +29,6 @@ import { SeedModule } from './seed/seed.module';
     SeedModule  
   ],
   controllers: [AppController],
-  providers: [AppService,
-    // {
-    //   provide : APP_GUARD,
-    //   useClass: AuthGuard
-    // }
-  ],
+  providers: [AppService],
 })
 export class AppModule {}
