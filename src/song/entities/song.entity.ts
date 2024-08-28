@@ -1,5 +1,7 @@
 import { ArtistEntity } from "src/artist/entities/artist.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { PlaylistSongEntity } from "src/playlist/entities/playlist-song.entity";
+import { PlaylistEntity } from "src/playlist/entities/playlist.entity";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('songs')
 export class SongEntity {
@@ -24,4 +26,7 @@ export class SongEntity {
 
     @ManyToOne(() => ArtistEntity, (artist) => artist.songs)
     artist: ArtistEntity
+
+    @OneToMany(() => PlaylistSongEntity, (playlist) => playlist.song)
+    songPlaylists : PlaylistSongEntity[];
 }

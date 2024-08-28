@@ -26,7 +26,7 @@ import { SeedModule } from './seed/seed.module';
 
     PlaylistModule,
 
-    SeedModule  
+    SeedModule  ,
   ],
   controllers: [AppController],
   providers: [AppService],

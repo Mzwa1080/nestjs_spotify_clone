@@ -1,11 +1,24 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreatePlaylistDto } from './dto/create-playlist.dto';
 import { UpdatePlaylistDto } from './dto/update-playlist.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { PlaylistEntity } from './entities/playlist.entity';
+import { Repository } from 'typeorm';
+import { PlaylistSongEntity } from './entities/playlist-song.entity';
+import { UserEntity } from 'src/user/user.entity';
 
 @Injectable()
 export class PlaylistService {
-  create(createPlaylistDto: CreatePlaylistDto) {
-    return 'This action adds a new playlist';
+  constructor(@InjectRepository(PlaylistEntity) playlistRepository : Repository<PlaylistEntity>,
+
+            ){}
+
+ async create(createPlaylistDto: CreatePlaylistDto) {
+      const newPlaylist = new PlaylistEntity()
+      createPlaylistDto.playlist_name = newPlaylist.playlist_name
+      createPlaylistDto.userId = newPlaylist.userId
+    
+     
   }
 
   findAll() {

@@ -13,12 +13,6 @@ export class UserController {
     constructor(private userService: UserService) { }
 
 
-
-    @Post('register')
-    async registerUser(@Body() body: userDto) {
-        return await this.userService.register(body)
-    }
-
     @UseGuards(AuthGuard)
     @Get('users')
     async getAllUser() {

@@ -2,8 +2,9 @@ import { UserEntity } from 'src/user/user.entity'
 import {DataSource, DataSourceOptions} from 'typeorm'
 import  {config } from 'dotenv'
 import { ArtistEntity } from 'src/artist/entities/artist.entity'
-import { Playlist } from 'src/playlist/entities/playlist.entity'
+import { PlaylistEntity } from 'src/playlist/entities/playlist.entity'
 import { SongEntity } from 'src/song/entities/song.entity'
+import { PlaylistSongEntity } from 'src/playlist/entities/playlist-song.entity'
 config()
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
@@ -12,7 +13,9 @@ export const dataSourceOptions: DataSourceOptions = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    entities: [UserEntity, ArtistEntity, Playlist, SongEntity],
+    "entities": [
+        __dirname + "entities/**/*.entity.ts"
+      ],
     synchronize: false,
     migrations: ['dist/db/migrations/*.js']
     

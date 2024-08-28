@@ -9,25 +9,24 @@ export class SeedService {
   constructor(@InjectRepository(SongEntity) private songSeed: Repository<SongEntity>) {}
 
   async run() {
-    // await this.songSeed.clear();
 
     // const songs: Partial<SongEntity>[] = [
     //   {
-    //     // artists: 'Future Hendrix',
+    //     // artistId: 1,
     //     title: 'Turn on the light',
     //     releasedDate: new Date('2018-05-02'),
     //     duration: '05:23',
     //     lyrics: 'Turn on the lights I\'m lookin for her too I heard she keep her promises and never turn on you I heard she',
     //   },
     //   {
-    //     // artists: 'Kendrick Lamar',
+    //     // artistId: 1,
     //     title: 'Not Like Us',
     //     releasedDate: new Date('2024-05-02'),
     //     duration: '09:23',
     //     lyrics: 'They not like us, they not like us, they not like us They not like us, they not like us, they not like us You think the Bay gon\' let you disrespect Pac, nigga?',
     //   },
     //   {
-    //     artists: 'Kabza',
+    //     artists: 3,
     //     title: 'Imithandazo',
     //     releasedDate: new Date('2024-01-02'),
     //     duration: '04:23',
