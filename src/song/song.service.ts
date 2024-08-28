@@ -35,6 +35,6 @@ export class SongService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} song`;
+    return this.songService.delete(id)
   }
 }

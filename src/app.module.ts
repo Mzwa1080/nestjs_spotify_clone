@@ -13,6 +13,8 @@ import { ArtistModule } from './artist/artist.module';
 import { SongModule } from './song/song.module';
 import { PlaylistModule } from './playlist/playlist.module';
 import { SeedModule } from './seed/seed.module';
+// import { PlaylistSongModule } from './playlist-song/playlist-song.module';
+import { PlaylistSongModule } from './playlist-song/playlist-song.module';
 
 @Module({
   imports: [
@@ -26,7 +28,9 @@ import { SeedModule } from './seed/seed.module';
 
     PlaylistModule,
 
-    SeedModule  ,
+    SeedModule,
+
+    PlaylistSongModule  ,
   ],
   controllers: [AppController],
   providers: [AppService],

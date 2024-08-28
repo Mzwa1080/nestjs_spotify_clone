@@ -37,7 +37,6 @@ export class UserService {
     }
 
     async updateUser(id: number, updateUserData: userUpdateDto) {
-        console.log('user id===', id, 'usedata===:', updateUserData);
         return await this.userRepository.update(id, updateUserData)
     }
 

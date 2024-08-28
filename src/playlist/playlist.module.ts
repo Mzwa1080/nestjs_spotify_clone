@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlaylistEntity } from './entities/playlist.entity';
 import { SongEntity } from 'src/song/entities/song.entity';
 import { UserEntity } from 'src/user/user.entity';
-import { PlaylistSongEntity } from './entities/playlist-song.entity';
+import { PlaylistSongEntity } from 'src/playlist-song/entities/playlist-song.entity';
 
 @Module({
   imports :[TypeOrmModule.forFeature([PlaylistEntity, PlaylistSongEntity])] ,

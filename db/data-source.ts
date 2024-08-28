@@ -4,7 +4,8 @@ import  {config } from 'dotenv'
 import { ArtistEntity } from 'src/artist/entities/artist.entity'
 import { PlaylistEntity } from 'src/playlist/entities/playlist.entity'
 import { SongEntity } from 'src/song/entities/song.entity'
-import { PlaylistSongEntity } from 'src/playlist/entities/playlist-song.entity'
+import { PlaylistSongEntity } from 'src/playlist-song/entities/playlist-song.entity'
+
 config()
 export const dataSourceOptions: DataSourceOptions = {
     type: 'postgres',
@@ -13,10 +14,8 @@ export const dataSourceOptions: DataSourceOptions = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    "entities": [
-        __dirname + "entities/**/*.entity.ts"
-      ],
-    synchronize: false,
+    entities: [UserEntity, ArtistEntity, PlaylistEntity, SongEntity, PlaylistSongEntity],
+    synchronize: true,
     migrations: ['dist/db/migrations/*.js']
     
     

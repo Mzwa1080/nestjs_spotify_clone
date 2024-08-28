@@ -1,5 +1,6 @@
 import { ArtistEntity } from "src/artist/entities/artist.entity";
-import { PlaylistSongEntity } from "src/playlist/entities/playlist-song.entity";
+import { PlaylistSongEntity } from "src/playlist-song/entities/playlist-song.entity";
+// import { PlaylistSongEntity } from "src/playlist/entities/playlist-song.entity";
 import { PlaylistEntity } from "src/playlist/entities/playlist.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
